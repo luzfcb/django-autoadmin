@@ -1,4 +1,4 @@
-from .handlers import auto_admin_create, auto_admin_account_passwd_change
+from .handlers import auto_admin_create, auto_admin_account_passwd_change  # NOQA
 
 __title__ = 'django-autoadmin'
 __version__ = '0.5.0'

@@ -5,7 +5,6 @@ import logging
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.utils.translation import ugettext_lazy as _
 
 from south.signals import post_migrate
 
@@ -34,7 +33,8 @@ def autoadmin_create(sender, **kwargs):
                 assert User.objects.create_superuser(USERNAME, EMAIL, PASSWORD)
                 admin = User.objects.get(username=USERNAME)
 
-                # Store the auto admin password properties to display the first login message
+                # Store the auto admin password properties to display the first
+                # login message
                 autoadmin_properties, created = AutoAdminSingleton.objects.get_or_create()
                 autoadmin_properties.account = admin
                 autoadmin_properties.password = PASSWORD
