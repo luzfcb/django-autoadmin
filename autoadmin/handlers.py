@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 import logging
 
-from django.contrib.auth import models as auth_models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -29,11 +28,11 @@ def autoadmin_create(sender, **kwargs):
 
         if ENABLE:
             try:
-                auth_models.User.objects.get(username=USERNAME)
-            except auth_models.User.DoesNotExist:
+                User.objects.get(username=USERNAME)
+            except User.DoesNotExist:
                 logger.info('Creating super admin user -- login: %s, password: %s' % (USERNAME, PASSWORD))
-                assert auth_models.User.objects.create_superuser(USERNAME, EMAIL, PASSWORD)
-                admin = auth_models.User.objects.get(username=USERNAME)
+                assert User.objects.create_superuser(USERNAME, EMAIL, PASSWORD)
+                admin = User.objects.get(username=USERNAME)
 
                 # Store the auto admin password properties to display the first login message
                 autoadmin_properties, created = AutoAdminSingleton.objects.get_or_create()
