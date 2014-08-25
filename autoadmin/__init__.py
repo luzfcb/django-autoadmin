@@ -1,7 +1,7 @@
 from django.core.exceptions import ImproperlyConfigured
 
 try:
-    from .handlers import auto_admin_create, auto_admin_account_passwd_change  # NOQA
+    from .handlers import autoadmin_create, autoadmin_account_passwd_change  # NOQA
 except ImproperlyConfigured:
     # Ignore this exception during setup.py
     pass
