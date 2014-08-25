@@ -1,6 +1,9 @@
+from django.core.exceptions import ImproperlyConfigured
+
 try:
     from .handlers import auto_admin_create, auto_admin_account_passwd_change  # NOQA
-except:
+except ImproperlyConfigured:
+    # Ignore this exception during setup.py
     pass
 
 __author__ = 'Roberto Rosario'
