@@ -1,2 +1,2 @@
-include README.rst LICENSE HISTORY.rst
 recursive-include autoadmin
+include README.rst LICENSE HISTORY.rst requirements.txt

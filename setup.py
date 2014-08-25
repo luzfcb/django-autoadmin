@@ -10,49 +10,9 @@ except ImportError:
 
 import autoadmin
 
-PACKAGE_NAME = 'django-autoadmin'
-PACKAGE_DIR = 'autoadmin'
-
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
     sys.exit()
-
-
-def fullsplit(path, result=None):
-    """
-    Split a pathname into components (the opposite of os.path.join) in a
-    platform-neutral way.
-    """
-    if result is None:
-        result = []
-    head, tail = os.path.split(path)
-    if head == '':
-        return [tail] + result
-    if head == path:
-        return result
-    return fullsplit(head, [tail] + result)
-
-
-def find_packages(directory):
-    # Compile the list of packages available, because distutils doesn't have
-    # an easy way to do this.
-    packages, data_files = [], []
-    root_dir = os.path.dirname(__file__)
-    if root_dir != '':
-        os.chdir(root_dir)
-
-    for dirpath, dirnames, filenames in os.walk(directory):
-        if not dirpath.startswith('mayan/media'):
-            # Ignore dirnames that start with '.'
-            if os.path.basename(dirpath).startswith('.'):
-                continue
-            if '__init__.py' in filenames:
-                packages.append('.'.join(fullsplit(dirpath)))
-            elif filenames:
-                data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
-    return packages
-
-install_requires = ['django-solo>=1.0.5']
 
 with open('README.rst') as f:
     readme = f.read()
@@ -63,28 +23,27 @@ with open('LICENSE') as f:
 
 setup(
     author='Roberto Rosario',
-    author_email='roberto.rosario.gonzalez@gmail.com',
+    author_email='me@robertorosario.com',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Intended Audience :: Education',
         'Intended Audience :: Developers',
-        'Intended Audience :: Information Technology',
-        'License :: OSI Approved :: Apache Software License',
+        'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Topic :: Internet :: WWW/HTTP',
     ],
-    description='Create automatic admin users for Django projects.',
+    description='Automatic admin users for Django projects.',
     include_package_data=True,
-    install_requires=install_requires,
+    install_requires=['django-solo>=1.0.5'],
     license=license,
     long_description=readme + '\n\n' + history,
-    name=PACKAGE_NAME,
-    packages=find_packages(PACKAGE_DIR),
+    name='django-autoadmin',
+    package_data={'': ['LICENSE']},
+    package_dir={'autoadmin': 'autoadmin'},
+    packages=['autoadmin'],
     platforms=['any'],
     url='https://github.com/rosarior/django-autoadmin',
     version=autoadmin.__version__,
