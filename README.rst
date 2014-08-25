@@ -34,7 +34,7 @@ Contribute
 .. _`MIT License`: https://github.com/rosarior/django-autoadmin/blob/master/AUTHORS.rst
 .. _`the repository`: http://github.com/rosarior/django-autoadmin
 .. _`AUTHORS file`: https://github.com/rosarior/django-autoadmin/blob/master/AUTHORS.rst
-.. |Screenshot| image:: https://github.com/rosarior/django-autoadmin/blob/master/screenshot.png
+.. |Screenshot| image:: https://github.com/rosarior/django-autoadmin/raw/master/screenshot.png
 
 
 .. |Installs badge| image:: http://img.shields.io/pypi/dm/django-autoadmin.svg?style=flat
