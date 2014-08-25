@@ -36,4 +36,4 @@ Contribute
 .. |PyPI badge| image:: http://img.shields.io/pypi/v/django-autoadmin.svg?style=flat
    :target: http://badge.fury.io/py/django-autoadmin
 .. |Wheel badge| image:: http://img.shields.io/badge/wheel-yes-green.svg?style=flat
-.. |License badge| image:: http://img.shields.io/badge/license-Apache%202.0-green.svg?style=flat
+.. |License badge| image:: http://img.shields.io/badge/license-MIT-green.svg?style=flat
