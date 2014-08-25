@@ -1,4 +1,7 @@
-from .handlers import auto_admin_create, auto_admin_account_passwd_change  # NOQA
+try:
+    from .handlers import auto_admin_create, auto_admin_account_passwd_change  # NOQA
+except:
+    pass
 
 __author__ = 'Roberto Rosario'
 __build__ = 0x000500
