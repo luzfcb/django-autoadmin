@@ -3,26 +3,25 @@ from __future__ import unicode_literals
 import logging
 
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_syncdb
 from django.dispatch import receiver
 
-from south.signals import post_migrate
-
+import autoadmin
 from .models import AutoAdminSingleton
 from .settings import EMAIL, PASSWORD, USERNAME, ENABLE
 
 logger = logging.getLogger(__name__)
 
 
-@receiver(post_migrate, dispatch_uid='autoadmin_create')
+@receiver(post_syncdb, dispatch_uid='autoadmin_create')
 def autoadmin_create(sender, **kwargs):
     """
     Create our own admin super user automatically whenever the post migrate
     signal is triggered.
     """
 
-    if kwargs['app'] == 'autoadmin':
-        # Only create the auto admin once, on our own post migrate signal
+    if kwargs['app'] == autoadmin.models:
+        # Only create the auto admin once, on our own post syncdb signal
         AutoAdminSingleton.objects.get_or_create()
 
         if ENABLE:
