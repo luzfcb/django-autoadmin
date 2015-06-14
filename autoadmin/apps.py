@@ -13,5 +13,8 @@ class AutoAdminAppConfig(apps.AppConfig):
     verbose_name = _('Autoadmin')
 
     def ready(self):
-        post_save.connect(auto_admin_account_password_change, dispatch_uid='auto_admin_account_password_change', sender=settings.AUTH_USER_MODEL)
-
+        post_save.connect(
+            auto_admin_account_password_change,
+            dispatch_uid='auto_admin_account_password_change',
+            sender=settings.AUTH_USER_MODEL
+        )

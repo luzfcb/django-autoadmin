@@ -1,10 +1,7 @@
 from __future__ import unicode_literals
 
-#TODO: Add DB support
-
 import logging
 
-from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core import management
 from django.core.management.base import BaseCommand, CommandError
@@ -40,14 +37,18 @@ class Command(BaseCommand):
             )
             management.call_command(
                 'createsuperuser',
-                 **{
+                **{
                     UserModel.USERNAME_FIELD: USERNAME,
                     'email': EMAIL,
                     'interactive': False
                 }
             )
 
-            account = UserModel.objects.get(**{UserModel.USERNAME_FIELD: USERNAME})
+            account = UserModel.objects.get(
+                **{
+                    UserModel.USERNAME_FIELD: USERNAME
+                }
+            )
             account.set_password(raw_password=password)
             account.save()
             # Store the auto admin password properties to display the
@@ -60,7 +61,5 @@ class Command(BaseCommand):
         else:
             raise CommandError('Superuser %s already exists.' % USERNAME)
             logger.error(
-                'Super admin user already exists. -- login: %s',
-                 USERNAME
-             )
-
+                'Super admin user already exists. -- login: %s', USERNAME
+            )
