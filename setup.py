@@ -23,7 +23,7 @@ with open('LICENSE') as f:
 
 setup(
     author='Roberto Rosario',
-    author_email='me@robertorosario.com',
+    author_email='roberto.rosario.gonzalez@gmail.com',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
@@ -32,7 +32,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
     ],
     description='Automatic admin users for Django projects.',

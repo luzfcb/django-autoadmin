@@ -3,7 +3,7 @@ Django-autoadmin is written and maintained by Roberto Rosario and various contri
 Development Lead
 ----------------
 
-- Roberto Rosario <me@robertorosario.com> `@rosarior <https://github.com/rosarior>`_
+- Roberto Rosario <roberto.rosario.gonzalez@gmail.com> `@rosarior <https://github.com/rosarior>`_
 
 Contributors
 ------------
