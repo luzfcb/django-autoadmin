@@ -42,7 +42,7 @@ setup(
     name='django-autoadmin',
     package_data={'': ['LICENSE']},
     package_dir={'autoadmin': 'autoadmin'},
-    packages=['autoadmin', 'autoadmin.templatetags'],
+    packages=['autoadmin', 'autoadmin.templatetags', 'autoadmin.management', 'autoadmin.management.commands'],
     platforms=['any'],
     url='https://github.com/rosarior/django-autoadmin',
     version=autoadmin.__version__,
