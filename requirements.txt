@@ -1,1 +1,1 @@
-django-solo==1.0.5
+django-solo==1.1.0

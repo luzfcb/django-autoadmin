@@ -36,7 +36,7 @@ setup(
     ],
     description='Automatic admin users for Django projects.',
     include_package_data=True,
-    install_requires=['django-solo>=1.0.5'],
+    install_requires=['django-solo>=1.1.0'],
     license=license,
     long_description=readme + '\n\n' + history,
     name='django-autoadmin',
