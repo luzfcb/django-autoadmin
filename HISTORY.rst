@@ -7,7 +7,7 @@
 - Adds support Django >= 1.7
 - Autoadmin user is no longer created after database migration
 - Add new createautoadmin management command
-- Uses Django's own 
+- Uses Django's own createsuperuser management command
 - Adds Django native database migrations
 - Uses AppConfig to about running code during import
 - Adds supports for custom User models
