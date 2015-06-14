@@ -1,3 +1,8 @@
+1.0.1 (2015-06-14)
+==================
+
+- No changes, just a version bump as required by PyPI
+
 1.0.0 (2015-06-14)
 ==================
 
